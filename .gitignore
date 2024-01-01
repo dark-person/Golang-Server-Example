@@ -1,0 +1,25 @@
+# Wails default
+build/bin
+node_modules
+frontend/dist
+
+# Image file
+*.jpg
+*.png
+*.jpeg
+
+# Unnecessary stuff
+.DS_Store
+*.log
+*.exe
+*report*
+*/temp/*
+
+# Project custom configs
+*.db
+similar_data.json
+config.yaml
+*.code-workspace
+
+# Old Project files
+frontend/src/*.jsx
