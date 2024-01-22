@@ -5,18 +5,20 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 )
 
 func New() *chi.Mux {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
+	// Serve static file of react
 	fileServer := http.FileServer(http.Dir("web/build"))
 	r.Handle("/static/*", fileServer)
 	r.Handle("/", fileServer)
 
+	// API endpoint
 	r.Route("/api", func(r chi.Router) {
 		r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 			w.Write([]byte("api entry: please refer to document"))
@@ -35,22 +37,6 @@ func New() *chi.Mux {
 			w.Write([]byte("ping.."))
 		})
 	})
-
-	// r.Route("/gallery", func(r chi.Router) {
-	// 	r.With(paginate).Get("/", ListArticles)
-	// 	r.Post("/", CreateArticle)       // POST /articles
-	// 	r.Get("/search", SearchArticles) // GET /articles/search
-
-	// 	r.Route("/{articleID}", func(r chi.Router) {
-	// 		r.Use(ArticleCtx)            // Load the *Article on the request context
-	// 		r.Get("/", GetArticle)       // GET /articles/123
-	// 		r.Put("/", UpdateArticle)    // PUT /articles/123
-	// 		r.Delete("/", DeleteArticle) // DELETE /articles/123
-	// 	})
-
-	// 	// GET /articles/whats-up
-	// 	r.With(ArticleCtx).Get("/{articleSlug:[a-z-]+}", GetArticle)
-	// })
 
 	return r
 }

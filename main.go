@@ -1,9 +1,9 @@
 package main
 
 import (
-	"AnimeImageAnalyser-v2/server"
 	"fmt"
 	"net/http"
+	"servers/server"
 )
 
 func main() {
