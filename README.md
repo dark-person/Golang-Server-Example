@@ -1,8 +1,6 @@
 # Simple Example of Server
 
-Using `Go`, `create-react-app`, `react` with `typescript`.
-
-Although `create-react-app` is not suggested to use anymore (use `vite`) instead, this repository can still view as example of server folder structure.
+Using `Go`, `vite`, `react` with `typescript`.
 
 ## Build & Run
 
@@ -17,11 +15,13 @@ choco install make
 ### Dependencies
 
 Install all dependencies of `npm`:
+
 ```
 make install
 ```
 
 OR reinstall everything:
+
 ```
 make reinstall
 ```
@@ -40,10 +40,10 @@ Running with golang server:
 make run
 ```
 
-### Build 
+### Build
+
 Build executable of `go`, with static web file built:
 
 ```
 make build
 ```
-

@@ -14,9 +14,10 @@ func New() *chi.Mux {
 	r.Use(middleware.Logger)
 
 	// Serve static file of react
-	fileServer := http.FileServer(http.Dir("web/build"))
-	r.Handle("/static/*", fileServer)
-	r.Handle("/", fileServer)
+	fileServer := http.FileServer(http.Dir("web/dist"))
+	r.Handle("/assets/*", fileServer) // Assets file
+	r.Handle("/*", fileServer)        // For file, not suggested to use
+	r.Handle("/", fileServer)         // Index Page
 
 	// API endpoint
 	r.Route("/api", func(r chi.Router) {
