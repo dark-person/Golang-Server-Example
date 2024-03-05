@@ -2,6 +2,13 @@
 
 Using `Go`, `vite`, `react` with `typescript`.
 
+This example provide the following features:
+
+-   `Makefile` with frequently use commands
+-   Graceful shutdown of backend service by `Ctrl + C`
+-   Predefined formatter for `vscode`
+-   Dictionaries for `vscode` code spell extensions
+
 ## Build & Run
 
 You are suggested to use `Makefile` for development.
